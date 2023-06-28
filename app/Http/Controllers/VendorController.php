@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class VendorController extends Controller
 {
-    public function adminDashboard()
+    public function vendorDashboard()
     {
         return view('vendor.dashboard');
     }

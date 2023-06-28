@@ -28,6 +28,16 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
+
+        if($user->role === 'admin'){
+            $response->assertRedirect(RouteServiceProvider::ADMIN);
+        }elseif($user->role === 'vendor'){
+            $response->assertRedirect(RouteServiceProvider::VENDOR);
+        }
+        else{
+            $response->assertRedirect(RouteServiceProvider::HOME);
+        }
+
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
